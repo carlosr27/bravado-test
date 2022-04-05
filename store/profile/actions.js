@@ -7,7 +7,10 @@ export default {
       return { success: false }
     }
 
-    context.commit('set_data', result)
+    context.commit(
+      'set_data',
+      result.map((el, index) => ({ ...el, id: index }))
+    )
 
     return { success: true, data: result }
   },

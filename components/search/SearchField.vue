@@ -6,6 +6,7 @@
       clearable
       filled
       dense
+      hide-details
     ></v-text-field>
   </div>
 </template>
@@ -23,6 +24,7 @@ export default {
       innerValue: '',
     }
   },
+  computed: {},
   watch: {
     innerValue(value) {
       this.$emit('input', value)
