@@ -1,0 +1,68 @@
+$padding-left-content: calc(1.75em + 0.75em);
+
+.profile {
+  min-height: 136px;
+  background: #fafafa;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 3px;
+  border: 1px solid transparent;
+
+  &__avatar {
+    max-width: 8.675em;
+    width: 100%;
+    height: inherit;
+    // margin: -1px;
+    padding-bottom: 11.64%;
+
+    flex: 1 0 auto;
+
+    background-color: #bbbbbb;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .content {
+    padding: 0.625em 0.625em 0.625em 0px;
+
+    .v-list-item__content {
+      padding-left: $padding-left-content;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      line-height: 32px;
+    }
+
+    &__subtitle {
+      font-size: 0.875rem;
+      line-height: 16px;
+    }
+
+    &__email {
+      font-size: 0.875rem;
+      line-height: 16px;
+    }
+
+    &__action {
+      width: 100%;
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      margin-top: 4px;
+      padding: 0.938em 0.75em 0.75em $padding-left-content;
+
+      a {
+        font-size: 0.875rem;
+        line-height: 16px;
+      }
+    }
+  }
+
+  &--active {
+    border-color: #4765ff;
+    .content {
+      &__action {
+        border: initial;
+      }
+    }
+  }
+}

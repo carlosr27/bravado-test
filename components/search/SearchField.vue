@@ -1,12 +1,16 @@
 <template>
-  <div class="search-container">
+  <div class="search-bar">
     <v-text-field
       v-model="innerValue"
+      prepend-inner-icon="mdi-magnify"
+      background-color="#FAFAFA"
       placeholder="Search"
       clearable
       filled
+      solo
       dense
       hide-details
+      class="searchb-bar__field"
     ></v-text-field>
   </div>
 </template>
@@ -38,5 +42,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

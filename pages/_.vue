@@ -1,15 +1,15 @@
 <template>
-  <v-container>
+  <v-container class="d-flex flex-column white" style="height: 100vh">
     <search-field v-model="query" />
     <v-virtual-scroll
       :items="profiles"
-      beanch="4"
-      height="500px"
-      item-height="30"
-      class="profiles-container"
+      beanch="2"
+      height="inherit"
+      item-height="164"
+      class="custom-scroll"
     >
       <template #default="{ item }">
-        <profile-item :key="item.id" :item="item" />
+        <profile-item :key="item.email" :item="item" />
       </template>
     </v-virtual-scroll>
   </v-container>
@@ -76,10 +76,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.profile-container {
-  height: 86vh;
-  max-height: 800px;
-}
-</style>
