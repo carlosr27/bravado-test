@@ -8,6 +8,7 @@ export default class Search {
     shouldSort: true,
     includeMatches: true,
     minMatchCharLength: 1,
+    useExtendedSearch: true,
     threshold: 0.099,
     keys: [
       { name: 'name', weight: 2 },
@@ -39,6 +40,10 @@ export default class Search {
 
   get instance() {
     return this.#instance
+  }
+
+  changeMinMatch(min) {
+    this.#options.minMatchCharLength = min || 1
   }
 
   createSearchInstance(items, options) {
