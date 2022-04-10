@@ -43,17 +43,21 @@ export default {
     },
   },
   async mounted() {
-    await this.getProfiles()
     if (this.$route.params.pathMatch.toLowerCase().includes('search')) {
       this.query = this.$route.params.pathMatch.split('/')[1]
     }
+    await this.getProfiles()
   },
   methods: {
     ...mapActions({ getProfiles: 'profile/getProfiles' }),
     ...mapMutations({ setSearch: 'profile/set_search' }),
     doSearch(query) {
-      if (!query) return this.setSearch({})
+      if (!this.allProfiles.length) return false
 
+      if (!query) {
+        this.$worker.terminate()
+        return this.setSearch({})
+      }
       setTimeout(() =>
         this.$worker
           .dispatch({ type: 'search', query, items: this.allProfiles })

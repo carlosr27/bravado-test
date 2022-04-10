@@ -7,16 +7,16 @@ export default class Search {
     includeScore: true,
     shouldSort: true,
     includeMatches: true,
-    minMatchCharLength: 1,
-    useExtendedSearch: true,
-    threshold: 0.099,
+    minMatchCharLength: 2,
+    useExtendedSearch: false,
+    threshold: 0.2,
     keys: [
       { name: 'name', weight: 2 },
       { name: 'email', weight: 1 },
       { name: 'title', weight: 0.8 },
       {
         name: 'city',
-        weight: 0.5,
+        weight: 0.4,
       },
       {
         name: 'address',
@@ -53,6 +53,6 @@ export default class Search {
   doSearch(query) {
     return this.instance
       .search(query)
-      .map((el) => ({ ...el.item, matches: el.matches }))
+      .map((el) => ({ ...el.item, matches: el.matches, score: el.score }))
   }
 }
