@@ -1,3 +1,19 @@
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins',
+  'abstracts/keyframes';
+
+$body-font-family: 'Roboto', sans-serif;
+
+$font-size-root: 16px;
 $material-light: (
   'background': #e5e5e5,
 );
+
+$container-max-widths: (
+  'sm': 780px,
+  'md': 880px,
+  'lg': 980px,
+  'xl': 1320px,
+  'xll': 1820px,
+);
+
+@import '~vuetify/src/styles/styles.sass';

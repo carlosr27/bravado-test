@@ -7,21 +7,12 @@
     ></div>
 
     <div
-      class="profile__content content d-flex flex-wrap flex-grow-1 align-self-stretch"
+      class="profile__content content d-flex flex-wrap flex-column flex-md-row flex-grow-1 align-self-stretch"
     >
       <v-list-item-content class="py-0">
-        <v-list-item-title
-          class="content__title"
-          v-html="name"
-        ></v-list-item-title>
-        <v-list-item-subtitle
-          class="content__subtitle font-weight-bold"
-          v-html="title"
-        ></v-list-item-subtitle>
-        <v-list-item-subtitle
-          class="content__subtitle"
-          v-html="address"
-        ></v-list-item-subtitle>
+        <v-list-item-title class="content__title" v-html="name"></v-list-item-title>
+        <div class="content__subtitle font-weight-bold" v-html="title"></div>
+        <div class="content__subtitle" v-html="address"></div>
       </v-list-item-content>
 
       <div class="content__email align-self-start" v-html="email"></div>
@@ -30,7 +21,7 @@
         <a
           href="#"
           role="button"
-          class="primary--text text-uppercase"
+          class="text-uppercase"
           @click.prevent="addOrRemove(item.email)"
         >
           {{ active ? 'Skip Selection' : 'Mark as siutable' }}

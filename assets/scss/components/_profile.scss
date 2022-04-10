@@ -1,5 +1,3 @@
-$padding-left-content: calc(1.75em + 0.75em);
-
 .profile {
   min-height: 136px;
   background: #fafafa;
@@ -20,6 +18,19 @@ $padding-left-content: calc(1.75em + 0.75em);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+
+    @media #{map-get($display-breakpoints, 'sm-and-down')} {
+      max-width: 140px;
+      height: 140px;
+      border-radius: 100%;
+    }
+
+    @media #{map-get($display-breakpoints, 'xs-only')} {
+      max-width: 64px;
+      height: 64px;
+
+      margin-top: 18px;
+    }
   }
 
   .content {
@@ -27,32 +38,53 @@ $padding-left-content: calc(1.75em + 0.75em);
 
     .v-list-item__content {
       padding-left: $padding-left-content;
+
+      @media #{map-get($display-breakpoints, 'sm-and-down')} {
+        overflow: initial;
+        align-items: initial;
+        align-self: stretch;
+      }
     }
 
     &__title {
       font-size: 1.5rem;
       line-height: 32px;
+      white-space: normal;
+      
+      @media #{map-get($display-breakpoints, 'xs-only')} {
+        font-size: 1.2rem;
+        line-height: 24px;
+      }
     }
 
     &__subtitle {
       font-size: 0.875rem;
       line-height: 16px;
+      white-space: normal;
     }
 
     &__email {
       font-size: 0.875rem;
       line-height: 16px;
+      white-space: normal;
+
+      @media #{map-get($display-breakpoints, 'sm-and-down')} {
+        padding-left: calc(#{$padding-left-content} + 0.2902rem);
+      }
     }
 
     &__action {
       width: 100%;
+      flex: 0 1 auto;
       border-top: 1px solid rgba(0, 0, 0, 0.12);
       margin-top: 4px;
-      padding: 0.938em 0.75em 0.75em $padding-left-content;
+      padding: 0.938em 0.75em 0.75em
+        calc(#{$padding-left-content} + #{$padding-left-step});
 
       a {
         font-size: 0.875rem;
         line-height: 16px;
+        color: #009688;
       }
     }
   }
@@ -61,7 +93,7 @@ $padding-left-content: calc(1.75em + 0.75em);
     border-color: #4765ff;
     .content {
       &__action {
-        border: initial;
+        border-color: transparent;
       }
     }
   }

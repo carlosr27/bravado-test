@@ -6,3 +6,22 @@ body {
   overflow-x: hidden;
   background-color: #e5e5e5;
 }
+
+html {
+  @media #{map-get($display-breakpoints, 'xl-only')} {
+    font-size: 18px !important;
+  }
+
+  @media #{map-get($display-breakpoints, 'sm-and-down')} {
+    font-size: 14px !important;
+  }
+}
+
+.container {
+  @media #{map-get($display-breakpoints, 'md-and-up')} {
+    height: 90vh;
+    max-height: 900px;
+  }
+  height: 100vh;
+}
+

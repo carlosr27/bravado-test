@@ -1,11 +1,12 @@
 <template>
-  <v-container class="d-flex flex-column white" style="height: 100vh">
+  <v-container class="d-flex flex-column white">
     <search-field v-model="query" />
     <v-virtual-scroll
+      :key="itemHeight"
       :items="profiles"
       beanch="2"
       height="inherit"
-      item-height="164"
+      :item-height="itemHeight"
       class="custom-scroll"
     >
       <template #default="{ item }">
@@ -30,6 +31,14 @@ export default {
       allProfiles: 'profile/profiles',
       searchItems: 'profile/search',
     }),
+    itemHeight() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return '180'
+        default:
+          return '164'
+      }
+    },
     profiles() {
       if (this.searchItems.query) return this.searchItems.items || []
       return this.allProfiles
@@ -46,7 +55,7 @@ export default {
     if (this.$route.params.pathMatch.toLowerCase().includes('search')) {
       this.query = this.$route.params.pathMatch.split('/')[1]
     }
-    await this.getProfiles()
+    await this.getProfiles().then(() => this.doSearch(this.query))
   },
   methods: {
     ...mapActions({ getProfiles: 'profile/getProfiles' }),
